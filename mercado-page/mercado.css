@@ -1,0 +1,337 @@
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #100040, #0004ff);
+      color: white;
+    }
+    .container {
+      max-width: 480px;
+      margin: 0 auto;
+      background-color: #000;
+      padding: 20px;
+      border-radius: 20px;
+      margin-top: 40px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .header h1 {
+      font-size: 24px;
+      margin: 0;
+    }
+    
+    /* Bloco do VIP*/
+
+    .bloco1 {
+      background: linear-gradient(to right, #002ad2, #00023b);
+      padding: 15px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      cursor: pointer;
+      transition: transform 0.4s;
+    }
+    .bloco1:hover {
+      transform: scale(1.05);
+    }
+    .bloco1 h2 {
+      margin: 0 0 10px 0;
+      font-size: 20px;
+    }
+    .bloco1 ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .bloco1 ul li {
+      margin-bottom: 5px;
+    }
+
+    /* Bloco do VIP PLUS*/
+    .bloco2{
+       background: linear-gradient(to right, #ff0000, #380000);
+      padding: 15px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      cursor: pointer;
+      transition: transform 0.4s;
+    }
+
+    .bloco2:hover {
+      transform: scale(1.05);
+    }
+    .bloco2 h2 {
+      margin: 0 0 10px 0;
+      font-size: 20px;
+    }
+    .bloco2 ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .bloco2 ul li {
+      margin-bottom: 5px;
+    }
+
+    /* Bloco do PREMIUM*/
+    .bloco3{
+      background: linear-gradient(to right, #9500ff, #180032);
+      padding: 15px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      cursor: pointer;
+      transition: transform 0.4s;
+    }
+
+    .bloco3:hover {
+      transform: scale(1.05);
+    }
+    .bloco3 h2 {
+      margin: 0 0 10px 0;
+      font-size: 20px;
+    }
+    .bloco3 ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .bloco3 ul li {
+      margin-bottom: 5px;
+    }
+
+    /*Mensagem de compra*/
+    
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.877);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background-color: #00034d;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+   
+    }
+
+    /* Parágrafo em cima do botão*/
+    .modal-content>p
+    
+    
+
+
+    .modal-content h3 {
+      margin-top: 0;
+
+    }
+
+    .fechar-btn {
+      background-color: #ff4f4f;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      color: rgb(0, 0, 0);
+      cursor: pointer;
+      float: right;
+      transition: transform 0.9s;
+    }
+
+    .fechar-btn:hover{
+      background-color: rgb(154, 0, 0);
+      transform: scale(0.9s);
+    }
+
+    .adicionar-btn{
+      background-color: #ffffff;
+      border: none;
+      font-size:15px;
+      padding: 10px;
+      border-radius: 800px;
+      color: rgb(0, 0, 0);
+      cursor: pointer;
+      text-align: center;
+      transition: transform 0.4s;
+    }
+    .adicionar-btn:hover{
+      background-color: #3e3bff;
+      transform: scale(1.9s);
+
+    }
+
+
+     body.bloqueado {
+      overflow: hidden;
+    }
+
+    .cart-container {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .badge {
+      position: absolute;
+      top: -11px;
+      right: -10px;
+      background-color: rgb(177, 0, 0);
+      color: white;
+      font-size: 12px;
+      padding: 2px 6px;
+      border-radius: 50%;
+    }
+
+    #carrinhoModal {
+      text-align: center;
+      padding: 20px;
+      max-width: 287px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.451);
+    }
+
+    #carrinhoModal ul {
+      padding-left: 20px;
+    }
+
+    .carrinho-total {
+      margin-top: 10px;
+      font-weight: bold;
+  
+    }
+ 
+
+
+dialog#carrinhoModal {
+  border: none;
+  border-radius: 16px;
+  padding: 20px 30px;
+  max-width: 400px;
+  width: 90%;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  position: relative;
+  z-index: 999;
+}
+
+#carrinhoModal::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+#carrinhoModal h3 {
+  margin-top: 0;
+  font-size: 20px;
+  color: #2d3436;
+}
+
+#carrinhoModal ul {
+  padding: 0;
+  list-style: none;
+  margin: 10px 0;
+}
+
+#carrinhoModal ul li {
+  margin-bottom: 10px;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e7e7e7;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.carrinho-total {
+  font-weight: bold;
+  font-size: 16px;
+  text-align: left;
+  margin-top: 10px;
+  color: #2d3436;
+}
+
+.finalizar-btn {
+  display: block;
+  width: 100%;
+  background: #0984e3;
+  color: white;
+  padding: 10px 0;
+  border: none;
+  border-radius: 10px;
+  margin-top: 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.finalizar-btn:hover {
+  background-color: #74b9ff;
+}
+
+.remover-btn {
+  background-color: #d63031;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.remover-btn:hover {
+  background-color: #ff7675;
+}
+
+#carrinhoModal .top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
+    .finalizar-btn {
+      background: #0031b8;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .remover-btn {
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 2px 6px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    .fechar-carrinho-btn { 
+      background-color: #e74c3c; 
+      color: #fff;
+      border: none;
+      padding: 8px 16px; 
+      margin-top: 12px; 
+      font-size: 14px; 
+      border-radius: 8px; 
+      cursor: pointer; 
+      transition: background-color 0.2s ease; }
+      
+      .fechar-carrinho-btn:hover { background-color: #c0392b;
+       } 
+
+
+    

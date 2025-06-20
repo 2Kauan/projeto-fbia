@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mercado</title>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="imagens/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="imagens/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="imagens/favicon/favicon-16x16.png">
+  <link rel="manifest" href="imagens/favicon/site.webmanifest">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="mercado.css">
+
+  <style>
+
+    .badge {
+      background-color: red;
+      color: white;
+      border-radius: 50%;
+      padding: 2px 6px;
+      font-size: 12px;
+      position: absolute;
+      top: -5px;
+      right: -10px;
+    }
+
+    .cart-container {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .efeito-adicionado {
+      animation: shake 0.4s ease-in-out;
+    }
+
+    @keyframes shake {
+      0% { transform: rotate(0); }
+      25% { transform: rotate(-10deg); }
+      50% { transform: rotate(10deg); }
+      75% { transform: rotate(-5deg); }
+      100% { transform: rotate(0); }
+    }
+
+    #carrinhoModal, #confirmacaoModal {
+      padding: 20px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      max-width: 400px;
+      width: 90%;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    #carrinhoModal::backdrop,
+    #confirmacaoModal::backdrop {
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .remover-btn {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      margin-left: 8px;
+    }
+
+    .finalizar-btn {
+      background: #00b894;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      
+      <i class="fas fa-arrow-left"></i>
+
+      <h1>MERCADO</h1>
+      <div class="cart-container" onclick="abrirCarrinho()">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="contador-carrinho" class="badge">0</span>
+      </div>
+    </div>
+
+    <div class="bloco1" onclick="abrirCompra('VIP ⭐ 29,99 / MÊS', 29.99)">
+      <h2>VIP ⭐ 29,99 / MÊS</h2>
+      <ul>
+        <li>+ Roupas (Classificação Azul)</li>
+        <li>+ 1 Slot de Frederico</li>
+        <li>+ Sem anúncios</li>
+      </ul>
+    </div>
+
+    <div class="bloco2" onclick="abrirCompra('VIP PLUS ✨ 49,99 / MÊS', 49.99)">
+      <h2>VIP PLUS ✨ 49,99 / MÊS</h2>
+      <ul>
+        <li>+ VIP (Tudo que tem no VIP)</li>
+        <li>+ Roupas (Classificação Vermelha)</li>
+        <li>+ 8 Slots de Frederico</li>
+      </ul>
+    </div>
+
+    <div class="bloco3" onclick="abrirCompra('PREMIUM 👑 69,99 / MÊS', 69.99)">
+      <h2>PREMIUM 👑 69,99 / MÊS</h2>
+      <ul>
+        <li>+ VIP PLUS (Tudo que tem no VIP PLUS)</li>
+        <li>+ Roupas (Classificação Roxa)</li>
+        <li>+ 16 Slots de Frederico</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Modal de compra -->
+  <div id="modal" class="modal" onclick="hideModal()" style="display: none;">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <button class="fechar-btn" onclick="hideModal()">Fechar</button>
+      <h3 id="modal-title"></h3>
+      <p>Para adquirir este pacote, clique no botão abaixo:</p>
+      <div class="adicionar-btn" onclick="event.stopPropagation()">
+        <button class="adicionar-btn" onclick="confirmarCompra()">Adicionar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal do Carrinho -->
+  <dialog id="carrinhoModal">
+    <h3>Carrinho 🛒</h3>
+    <p id="infoCarrinho">Seu carrinho está vazio.</p>
+    <ul id="listaCarrinho"></ul>
+    <p>Total: R$ <span id="totalCarrinho">0,00</span></p>
+    <button class="finalizar-btn" onclick="finalizarCompra()">Finalizar Compra</button>
+  <button class="fechar-carrinho-btn" onclick="fecharCarrinho()">Fechar</button>
+  </dialog>
+
+  <!-- Modal de Confirmação -->
+  <dialog id="confirmacaoModal">
+    <h3>✅ Compra Confirmada!</h3>
+    <p>Obrigado por adquirir:</p>
+    <ul id="itensComprados"></ul>
+    <p>Total pago: R$ <span id="totalConfirmado">0,00</span></p>
+  <button class="fechar-carrinho-btn" onclick="fecharConfirmacao()">Fechar</button>
+  </dialog>
+
+  <script>
+    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    let pacoteAtual = '';
+    let precoAtual = 0;
+
+    window.addEventListener('load', () => {
+      atualizarContadorCarrinho();
+    });
+
+    function abrirCompra(nome, preco) {
+      pacoteAtual = nome;
+      precoAtual = preco;
+      document.getElementById('modal-title').textContent = nome;
+      document.getElementById('modal').style.display = 'flex';
+    }
+
+    function confirmarCompra() {
+      carrinho.push({ nome: pacoteAtual, preco: precoAtual });
+      localStorage.setItem('carrinho', JSON.stringify(carrinho));
+      alert(`🎉 Você adicionou "${pacoteAtual}" ao carrinho!`);
+      hideModal();
+      atualizarContadorCarrinho();
+      const carrinhoIcone = document.querySelector('.fa-shopping-cart');
+      carrinhoIcone.classList.add('efeito-adicionado');
+      setTimeout(() => carrinhoIcone.classList.remove('efeito-adicionado'), 400);
+    }
+
+    function hideModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+
+    function abrirCarrinho() {
+      const modal = document.getElementById('carrinhoModal');
+      const info = document.getElementById('infoCarrinho');
+      const lista = document.getElementById('listaCarrinho');
+      const totalEl = document.getElementById('totalCarrinho');
+
+      if (carrinho.length === 0) {
+        info.textContent = "Seu carrinho está vazio.";
+        lista.innerHTML = "";
+        totalEl.textContent = "0,00";
+      } else {
+        info.textContent = `Você tem ${carrinho.length} pacote(s):`;
+        lista.innerHTML = carrinho.map((item, index) => `
+          <li>${item.nome} - R$ ${item.preco.toFixed(2)}
+            <button class="remover-btn" onclick="removerItemCarrinho(${index})">🗑️</button>
+          </li>`).join('');
+        const total = carrinho.reduce((soma, item) => soma + item.preco, 0);
+        totalEl.textContent = total.toFixed(2);
+      }
+
+      modal.showModal();
+      document.body.classList.add("bloqueado");
+    }
+
+    function fecharCarrinho() {
+      document.getElementById('carrinhoModal').close();
+      document.body.classList.remove("bloqueado");
+    }
+
+    function finalizarCompra() {
+      const total = carrinho.reduce((soma, item) => soma + item.preco, 0).toFixed(2);
+      document.getElementById('itensComprados').innerHTML =
+        carrinho.map(item => `<li>${item.nome} - R$ ${item.preco.toFixed(2)}</li>`).join('');
+      document.getElementById('totalConfirmado').textContent = total;
+      carrinho = [];
+      localStorage.removeItem('carrinho');
+      atualizarContadorCarrinho();
+      fecharCarrinho();
+      document.getElementById('confirmacaoModal').showModal();
+    }
+
+    function fecharConfirmacao() {
+      document.getElementById('confirmacaoModal').close();
+      document.body.classList.remove('bloqueado');
+    }
+
+    function atualizarContadorCarrinho() {
+      document.getElementById('contador-carrinho').textContent = carrinho.length;
+    }
+
+    function removerItemCarrinho(index) {
+      carrinho.splice(index, 1);
+      localStorage.setItem('carrinho', JSON.stringify(carrinho));
+      abrirCarrinho();
+      atualizarContadorCarrinho();
+    }
+  </script>
+</body>
+</html>
