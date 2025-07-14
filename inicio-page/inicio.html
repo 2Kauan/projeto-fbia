@@ -1,14 +1,61 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bem-Vindo</title>
-    <link rel="stylesheet" href="inicio.css">
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FBIA</title>
+
+  <link rel="stylesheet" href="inicio.css">
 </head>
 <body>
-    <h1>INICIO</h1>
-  
+    <nav>
+        <table>
+            <tr>
+                <td>
+                    <a href="">Armazém</a>
+                </td>
+
+               
+                    <td>
+                        <a href="http://127.0.0.1:5500/projeto-fbia/mercado-page/mercado.html">Mercado</a>
+                    </td>
+                
+
+                <td>
+                    <a href="">Custumização</a>
+                </td>
+
+                <td>
+                    <a href="">Bate-Papo</a>
+                </td>
+            </tr>
+        </table>
+
+    </nav>
+
+  <div id="section1" class="section">
+    Parte 1 – Tela inicial
+  </div>
+
+  <div id="section2" class="section">
+    Parte 2 – Novo fundo ao rolar
+  </div>
+
+  <script>
+    window.addEventListener("scroll", function () {
+      const scrollY = window.scrollY;
+      const section2 = document.getElementById("section2");
+
+      if (scrollY >= window.innerHeight / 2) {
+        document.body.style.background = section2.style.background;
+      } else {
+        document.body.style.background = document.getElementById("section1").style.background;
+      }
+    });
+
+    // Define o background inicial
+    document.body.style.background = document.getElementById("section1").style.background;
+  </script>
+
 </body>
 </html>
