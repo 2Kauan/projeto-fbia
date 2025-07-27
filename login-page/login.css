@@ -80,6 +80,7 @@ input:focus {
   justify-content: center;
   justify-items: center;
   align-items: center;
+    min-width: 450px;
 }
 
 .entrar {
@@ -87,7 +88,7 @@ input:focus {
     padding: 14px;
     background: #0007ce;
     border: none;
-    width: 450px;
+    min-width: 450px;
 
     border-radius: 8px;
     color: white;
@@ -141,6 +142,10 @@ input:focus {
     .container {
         padding: 20px;
     }
+    .entrar {
+     max-width: 95%;
+        
+    }
 }
 
 @media (max-width: 480px) {
@@ -157,4 +162,9 @@ input:focus {
     .password-rules {
         font-size: 12px;
     }
+      .entrar {
+        width: 100px;
+        
+    }
+
 }
