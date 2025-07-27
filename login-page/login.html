@@ -1,89 +1,72 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bem-Vindo ao FBIA</title>
-
-<!-- AOS CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
-  
-  
-
-  <link rel="stylesheet" href="login.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FBIA</title>
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
-  <!-- Fundo -->
-  <div id="trails" class="background"></div> 
-<!-- Interface -->
-  <div class="container" id="loginBox"
-       onmouseenter="mouseMoving = false; triggerDisperse();"
-       onmouseleave="mouseMoving = true; removeFloat();">
-    
+    <main class="wrapper">
+        <!-- Login -->
+        <div class="container" id="login-container">
+            <div class="form-box">
+                <h1 class="logo"><img src="    " alt=""></h1>
+                <form id="login-form">
+                    <label for="email-login">Email *</label>
+                    <input type="email" id="email-login" placeholder="Digite seu e-mail" required>
 
-    <div class="logo">
-      <img src="imagens/frederico-png.png" alt="frederico-png">
+                    <label for="senha-login">Senha *</label>
+                    <input type="password" id="senha-login" placeholder="Digite sua senha" required>
 
-      </video>
-    </div>
-    <h1>FBIA</h1>
-    <div class="form">
-      <input type="email" placeholder="E-mail...">
+                    <div class="link">
+                        <a href="#">Recuperar senha</a>
+                    </div>
 
-     <div class="password-wrapper">
-  <input type="password" id="passwordInput" placeholder="Senha...">
-  <span id="togglePassword" class="eye">👁️</span>
-</div>
+                    <div class="div-entrar">
+                      <a href="/projeto-fbia/inicio-page/inicio.html">
+                        <button type="submit" class="entrar">Entrar</button>
+                      </a>
+              
+                    </div>
+                    <p class="switch-text">Não tem uma conta? <a href="#" id="go-register">Cadastre-se</a></p>
+                </form>
+            </div>
+        </div>
 
-      <div class="options" id="forgotPassword">
-        <a href="#">Esqueceu sua senha?</a>
-      </div>
-    </div>
-    
-    <div class="options" style="margin-top: 1rem;">
-      <span onclick="switchMode('register')">
+        <!-- Cadastro -->
+        <div class="container hidden" id="register-container">
+            <div class="form-box">
+                <h1 class="logo"> <img src="    " alt=""></h1>
+                <p>Preencha os campos abaixo para criar sua conta</p>
+                <form id="register-form">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" placeholder="Digite seu nome" required>
 
-        <a href="file:///C:/Users/Kauan/OneDrive/Documentos/estudos-do-curso/projeto-fbia/projeto-fbia/inicio-page/inicio.html"><strong class="cadastro" id="cadastrar">CADASTRO</strong></a>
-      
-      </span> | 
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="Digite seu e-mail" required>
 
-      <a href="file:///C:/Users/Kauan/OneDrive/Documentos/estudos-do-curso/projeto-fbia/projeto-fbia/inicio-page/inicio.html"><strong class="entrar" onclick="switchMode('login')">ENTRAR</strong></a>
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" id="telefone" placeholder="Telefone com DDD" required>
 
-    </div>
-    <div class="social">
-      <a href="#">G</a>
-      <a href="#">f</a>
-      <a href="#"></a>
-    </div>
-  </div>
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" placeholder="Digite sua senha" required>
+                    
+                    <div class="password-rules">
+                        <p id="lower">✖ Uma letra minúscula</p>
+                        <p id="upper">✖ Uma letra maiúscula</p>
+                        <p id="number">✖ Um número</p>
+                        <p id="special">✖ Um caractere especial</p>
+                        <p id="length">✖ Pelo menos 8 caracteres</p>
+                    </div>
 
+                    <div class="div-entrar"> <button type="submit" class="entrar">Próximo</button></div>
 
-  
-  <script>
-    function switchMode(mode) {
-      const forgot = document.getElementById("forgotPassword");
-      if (mode === "register") {
-        forgot.style.opacity = 0;
-        setTimeout(() => forgot.style.display = "none", 300);
-      } else {
-        forgot.style.display = "block";
-        setTimeout(() => forgot.style.opacity = 1, 10);
-      }
-    }
-
-  </script>
-
-  <script>
-  const togglePassword = document.getElementById("togglePassword");
-  const passwordInput = document.getElementById("passwordInput");
-
-  togglePassword.addEventListener("click", () => {
-    const isPassword = passwordInput.type === "password";
-    passwordInput.type = isPassword ? "text" : "password";
-    togglePassword.textContent = isPassword ? "🙈" : "👁️";
-  });
-</script>
-  <script src="login.js"></script>
+                    <p class="switch-text">Já tem conta? <a href="#" id="go-login">Entrar</a></p>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script src="login.js"></script>
 </body>
 </html>
