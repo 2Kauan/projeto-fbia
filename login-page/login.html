@@ -12,25 +12,24 @@
         <div class="container" id="login-container">
             <div class="form-box">
                 <h1 class="logo"><img src="    " alt=""></h1>
-                <form id="login-form">
-                    <label for="email-login">Email *</label>
-                    <input type="email" id="email-login" placeholder="Digite seu e-mail" required>
+               <form id="login-form" action="/projeto-fbia/inicio-page/inicio.html" method="POST">
+  <label for="email-login">Email *</label>
+  <input type="email" id="email-login" name="email" placeholder="Digite seu e-mail" required>
 
-                    <label for="senha-login">Senha *</label>
-                    <input type="password" id="senha-login" placeholder="Digite sua senha" required>
+  <label for="senha-login">Senha *</label>
+  <input type="password" id="senha-login" name="senha" placeholder="Digite sua senha" required>
 
-                    <div class="link">
-                        <a href="#">Recuperar senha</a>
-                    </div>
+  <div class="link">
+    <a href="#">Recuperar senha</a>
+  </div>
 
-                    <div class="div-entrar">
-                      <a href="/projeto-fbia/inicio-page/inicio.html">
-                        <button type="submit" class="entrar">Entrar</button>
-                      </a>
-              
-                    </div>
-                    <p class="switch-text">Não tem uma conta? <a href="#" id="go-register">Cadastre-se</a></p>
-                </form>
+  <div class="div-entrar">
+    <button type="submit" class="entrar">Entrar</button>
+  </div>
+
+  <p class="switch-text">Não tem uma conta? <a href="#" id="go-register">Cadastre-se</a></p>
+</form>
+
             </div>
         </div>
 

@@ -1,170 +1,174 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
 body {
-    background-color: #0e0e1c;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding: 20px;
+  background-color: #0e0e1c;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
 }
 
 .wrapper {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    max-width: 400px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
 }
 
 .container {
-    width: 100%;
-    background: #000046;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  width: 100%;
+  background: #000046;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 .logo {
-    text-align: center;
-    margin-bottom: 15px;
-    font-size: 24px;
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 24px;
 }
 
 p {
-    text-align: center;
-    margin-top: 10px;
+  text-align: center;
+  margin-top: 10px;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 label {
-    margin-top: 10px;
-    font-size: 14px;
+  margin-top: 10px;
+  font-size: 14px;
 }
 
 input {
-    padding: 12px;
-    margin-top: 5px;
-    border-radius: 6px;
-    border: 1px solid #333;
-    background: #0e0e16;
-    color: #fff;
-    font-size: 16px;
-     transition: 0.3s ease;
+  padding: 12px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background: #0e0e16;
+  color: #fff;
+  font-size: 16px;
+  transition: 0.3s ease;
 }
 
-input:hover{
+input:hover {
   transform: scale(1.05);
 }
 
 input:focus {
-    outline: none;
-    border-color: #0007ce;
+  outline: none;
+  border-color: #0007ce;
 }
 
-.div-entrar{
-   display: flex;
+.div-entrar {
+  display: flex;
   justify-content: center;
-  justify-items: center;
   align-items: center;
-    min-width: 450px;
+  width: 100%;
+  margin-top: 20px;
 }
 
 .entrar {
-    margin-top: 20px;
-    padding: 14px;
-    background: #0007ce;
-    border: none;
-    min-width: 450px;
-
-    border-radius: 8px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s ease;
+  padding: 11px 0;
+  background: #0007ce;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  width: 100%; 
+  max-width: 500px;  
+  text-align: center;
 }
 
 .entrar:hover {
-    background: #2229ff;
-    transform: scale(1.05);
+  background: #2229ff;
+  transform: scale(1.05);
 }
-
 
 .link {
-    text-align: right;
-    margin-top: 5px;
+  text-align: right;
+  margin-top: 5px;
 }
 
-.link a, p a {
-    color: #2807ff;
-    text-decoration: none;
+.link a,
+p a {
+  color: #2807ff;
+  text-decoration: none;
 }
 
 .password-rules {
-    margin-top: 10px;
-    font-size: 13px;
-    color: #bbb;
+  margin-top: 10px;
+  font-size: 13px;
+  color: #bbb;
 }
 
 .password-rules p {
-    margin: 3px 0;
+  margin: 3px 0;
 }
 
 .valid {
-    color: #00ff7f;
+  color: #00ff7f;
 }
 
 .invalid {
-    color: #ff4d4d;
+  color: #ff4d4d;
 }
 
-/* ✅ Responsividade */
+/* RESPONSIVIDADE */
+
 @media (max-width: 768px) {
-    body {
-        padding: 15px;
-    }
-    .wrapper {
-        max-width: 95%;
-    }
-    .container {
-        padding: 20px;
-    }
-    .entrar {
-     max-width: 95%;
-        
-    }
+  .wrapper {
+    max-width: 95%;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  .entrar {
+    font-size: 15px;
+    width: 100%;
+    max-width: 400px; 
+  }
+
+  input {
+    font-size: 15px;
+  }
 }
 
 @media (max-width: 480px) {
-    .logo {
-        font-size: 20px;
-    }
-    .btn {
-        font-size: 14px;
-        padding: 12px;
-    }
-    input {
-        font-size: 14px;
-    }
-    .password-rules {
-        font-size: 12px;
-    }
-      .entrar {
-        width: 100px;
-        
-    }
+  .logo {
+    font-size: 20px;
+  }
 
+  .entrar {
+    font-size: 14px;
+    width: 100%;
+    max-width: 300px; 
+  }
+
+  input {
+    font-size: 14px;
+  }
+
+  .password-rules {
+    font-size: 12px;
+  }
 }
