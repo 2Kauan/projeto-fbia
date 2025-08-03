@@ -45,6 +45,8 @@ loginForm.addEventListener("submit", (e) => {
     }
 
   
-    window.location.href =  "/projeto-fbia/inicio-page/inicio.html"
+      window.location.href = "../inicio-page/inicio.html";
+   
+
 
 });
