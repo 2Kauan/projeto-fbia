@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chatbot - Frederico</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="/inicio-page/css/inicio.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo">FBIA</div>
+    <i class="fas fa-bars menu-btn" onclick="toggleMenu()"></i>
+    <nav id="nav-menu">
+      <a href="sobre.html">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="equipe.html">Equipe</a>
+      <a href="#contato">Contato</a>
+      <a href="javascript:void(0)" onclick="toggleChat()">Chat com FBIA</a>
+
+    </nav>
+  </header>
+
+  <section class="banner">
+    <h1>Frederico, seu Chatbot Inteligente</h1>
+    <p>Atenda clientes, responda perguntas e venda mais com um robô personalizado!</p>
+  </section>
+
+  <section id="servicos">
+    <h2>O que o FBIA faz?</h2>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="features">
+      <div class="card">
+        <i class="fas fa-robot"></i>
+        <h3>Atendimento 24h</h3>
+        <p>Seu cliente nunca mais vai ficar sem resposta.</p>
+      </div>
+
+      <div class="card">
+        <i class="fas fa-comments"></i>
+        <h3>Conversa Natural</h3>
+        <p>Parecendo humano, mas com velocidade de máquina.</p>
+      </div>
+
+      <div class="card">
+        <i class="fas fa-cogs"></i>
+        <h3>Totalmente Personalizável</h3>
+        <p>Adapte o Frederico para qualquer negócio.</p>
+      </div>
+
+         <div class="card">
+       <i class="fa-solid fa-book-open"></i>
+        <h3>Aprende com cada interação</h3>
+        <p>Quanto mais conversa, mais inteligente e eficiente ele se torna.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="equipe">
+    <h2>Equipe Criadora</h2>
+    <p>Desenvolvido com criatividade por Kauan</p>
+  </section>
+
+  <section id="contato">
+    <h2>Fale Conosco</h2>
+    <p>Entre em contato para ter o seu próprio Frederico hoje mesmo!</p>
+  </section>
+
+  <footer>
+    &copy; 2025 FBIA. Todos os direitos reservados.
+  </footer>
+
+  <!-- Chatbot -->
+  <div id="chatbot">
+    <header>Chatbot Frederico</header>
+    <div id="chat-messages"></div>
+    <div id="chat-input">
+      <input type="text" id="userInput" placeholder="Digite aqui..." />
+      <button onclick="sendMessage()">Enviar</button>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("nav-menu").classList.toggle("show");
+    }
+
+    function sendMessage() {
+      const input = document.getElementById("userInput");
+      const message = input.value.trim();
+      if (!message) return;
+
+      addMessage(message, 'user');
+      input.value = '';
+
+      setTimeout(() => {
+        const resposta = getRespostaBot(message);
+        addMessage(resposta, 'bot');
+      }, 600);
+    }
+
+    function addMessage(text, type) {
+      const msg = document.createElement('div');
+      msg.className = type;
+      msg.innerText = text;
+      document.getElementById('chat-messages').appendChild(msg);
+      document.getElementById('chat-messages').scrollTop = 9999;
+    }
+
+    function getRespostaBot(msg) {
+      msg = msg.toLowerCase();
+      if (msg.includes("olá") || msg.includes("oi")) return "Olá! Como posso te ajudar?";
+      if (msg.includes("preço")) return "Os planos variam de R$49 a R$199/mês.";
+      if (msg.includes("quem é você")) return "Sou o Frederico, seu assistente virtual!";
+      return "Desculpe, ainda estou aprendendo. Pode reformular?";
+    }
+
+
+  function toggleMenu() {
+    const nav = document.querySelector("nav");
+    nav.classList.toggle("show");
+  }
+
+  function toggleChat() {
+    const chat = document.getElementById("chatbot");
+    chat.style.display = (chat.style.display === "none" || chat.style.display === "") ? "flex" : "none";
+  }
+
+  // Ocultar o chatbot inicialmente
+  window.onload = () => {
+    document.getElementById("chatbot").style.display = "none";
+  };
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+   * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #001e82, #000000);
+      color: white;
+    }
+
+    header {
+      background: #000000dd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #00aaff;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #00aaff;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: #000000ee;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        width: 200px;
+        padding: 1rem;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    .hero {
+      text-align: center;
+      padding: 5rem 2rem;
+      background: linear-gradient(to bottom, #001e82, #000000);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .section {
+      padding: 4rem 2rem;
+      background-color: #0a0a0a;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #00aaff;
+    }
+
+    #chatbox {
+      display: none;
+      flex-direction: column;
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 300px;
+      background: #111;
+      border: 1px solid #00aaff;
+      border-radius: 10px;
+      overflow: hidden;
+      z-index: 999;
+    }
+
+    #chatbox header {
+      background: #00aaff;
+      padding: 0.5rem;
+      text-align: center;
+      font-weight: bold;
+      color: black;
+    }
+
+    #messages {
+      height: 200px;
+      overflow-y: auto;
+      padding: 1rem;
+    }
+
+    #userInput {
+      display: flex;
+      border-top: 1px solid #00aaff;
+    }
+
+    #userInput input {
+      flex: 1;
+      padding: 0.5rem;
+      border: none;
+      outline: none;
+    }
+
+    #userInput button {
+      background: #00aaff;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+
+
+    /* Nova seção Sobre */
+    #sobre-page {
+      min-height: 100vh;
+      padding: 4rem 2rem;
+      background-color: #101010;
+    }
+
+    #sobre-page h2 {
+      color: #00aaff;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    #sobre-page .content {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ddd;
+    }
