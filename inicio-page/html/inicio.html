@@ -82,6 +82,7 @@
     <div id="chat-input">
       <input type="text" id="userInput" placeholder="Digite aqui..." />
       <button onclick="sendMessage()">Enviar</button>
+      <button onclick="sendMessage()">Sair</button>
     </div>
   </div>
 
@@ -115,9 +116,11 @@
     function getRespostaBot(msg) {
       msg = msg.toLowerCase();
       if (msg.includes("olá") || msg.includes("oi")) return "Olá! Como posso te ajudar?";
+      
       if (msg.includes("preço")) return "Os planos variam de R$49 a R$199/mês.";
+
       if (msg.includes("quem é você")) return "Sou o Frederico, seu assistente virtual!";
-      return "Desculpe, ainda estou aprendendo. Pode reformular?";
+      return "Desculpe, ainda estou aprendendo. Pode reformular a pergunta?";
     }
 
 
