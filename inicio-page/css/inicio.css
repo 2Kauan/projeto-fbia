@@ -35,11 +35,12 @@
       color: white;
       text-decoration: none;
       font-weight: 500;
-      transition: 0.3s;
+      transition: transform 0.5s, color 0.5s;
     }
 
     nav a:hover {
-      color: #00b4ff;
+      color: #5555ff;
+
     }
 
     .menu-btn {
@@ -130,20 +131,6 @@
       font-size: 0.9em;
     }
 
-    #whatsapp {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25D366;
-      color: white;
-      padding: 12px;
-      border-radius: 50%;
-      font-size: 1.5em;
-      z-index: 100;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
     #whatsapp:hover {
       transform: scale(1.1);
     }
@@ -214,4 +201,14 @@
       color: white;
       text-align: right;
       margin-left: auto;
+    }
+
+
+    a{
+      text-decoration: none;
+      color: rgb(3, 0, 156);
+      transition: transform 0.5s, color 0.5s;
+    }
+    a:hover{
+      color: #5980ff;
     }
