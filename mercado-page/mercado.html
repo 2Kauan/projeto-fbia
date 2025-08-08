@@ -83,11 +83,12 @@
   <div class="container">
     <div class="header">
       
-      <a href="../inicio-page/inicio.html"><i class="fas fa-arrow-left"> </i></a>
+      <a href="#"><i class="fas fa-arrow-left" id="voltarmercado"> </i></a>
 
       <h1>MERCADO</h1>
       <div class="cart-container" onclick="abrirCarrinho()">
         <i class="fas fa-shopping-cart"></i>
+
         <span id="contador-carrinho" class="badge">0</span>
       </div>
     </div>
@@ -238,6 +239,12 @@
       abrirCarrinho();
       atualizarContadorCarrinho();
     }
+
+
+    document.getElementById('voltarmercado').addEventListener('click', () => {
+  history.back(); // volta para a página anterior no histórico do navegador
+});
+
   </script>
 </body>
 </html>
