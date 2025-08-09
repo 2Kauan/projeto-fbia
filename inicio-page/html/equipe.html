@@ -1,62 +1,89 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nossa Equipe</title>
-    <link rel="stylesheet" href="../css/equipe.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nossa Equipe</title>
+  <link rel="stylesheet" href="../css/equipe.css">
 </head>
 <body>
 
 
-    <section id="equipe" class="team">
-        <header>
-            <h2>Conheça a Equipe</h2>
-        </header>
-        <div class="team-container">
+  <!-- Fundo quando abrir o menu -->
+  <div class="overlay" id="overlay"></div>
+    
 
+  <!-- Menu fixo -->
+  <nav class="menu">
+    <div class="logo">logo</div>
 
-            <div class="team-member">
-                <a href=" https://www.instagram.com/kauan_zxw?igsh=MXN4MDU5YmhxNHRlNw=="><img src="/imagens/img-kauan.jpg" alt="Foto de Kauan Batista de Sousa"></a>
-                <h3>Kauan Batista de Sousa</h3>
-                <p class="cargo">CEO e Programador</p>
-                <p class="bio">Apaixonado por tecnologia e líder da equipe, com ampla experiência em desenvolvimento e gestão.</p>
-            </div>
+    <!-- Botão hambúrguer -->
+    <div class="btn-hamburguer" id="btnMenu">
+      &#9776;
+    </div>
 
+    <ul class="links" id="linksMenu">
+      <li><a href="../../inicio-page/html/inicio.html">Início</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="equipe.html" class="ativo">Equipe</a></li>
+      <li><a href="chat.html">Chat</a></li>
+    </ul>
+  </nav>
 
-            <div class="team-member">
-                <a href=" https://www.instagram.com/guizyn45?igsh=MWU4N3gxZWFzajl0aQ== "><img src="/imagens/img-guilherme.jpg" alt="Foto de Guilherme Carvalho"></a>
-                <h3>Guilherme Carvalho</h3>
-                <p class="cargo">Organizador geral e Programador</p>
-                <p class="bio">Responsável pela organização e controle das atividades da equipe, além da programação.</p>
-            </div>
+  <!-- Cabeçalho -->
+  <header class="cabecalho">
+    <h1>Nossa Equipe</h1>
+    <p>Conheça as pessoas que tornam nosso projeto possível</p>
+  </header>
 
+  <!-- Equipe -->
+  <section class="equipe">
+    <div class="membro">
+      <img src="../../imagens/img-kauan.jpg" alt="Foto do Kauan Batista De Sousa">
+      <h3>Kauan Batista De Sousa</h3>
+      <p class="funcao">CEO e Programador</p>
+      <p class="descricao">Responsável pela coordenação geral e comunicação entre as equipes.</p>
+    </div>
 
-            <div class="team-member">
+    <div class="membro">
+      <img src="../../imagens/img-guilherme.jpg" alt="Foto de Guilherme Carvalho Paiva">
+      <h3>Guilherme Carvalho Paiva</h3>
+      <p class="funcao">Organizador Geral</p>
+      <p class="descricao"> Organiza todas informações passadas e direciona a equipe.</p>
+    </div>
 
-                <a href=" https://www.instagram.com/mateuslevy21?igsh=azVpdjJoNG5ocnI1"><img src="/imagens/img-levy.jpg" alt="Foto de Mateus Levy"></a>
-                <h3>Mateus Levy</h3>
-                <p class="cargo">Programador</p>
-                <p class="bio">Programador dedicado, focado em entregar soluções funcionais e inovadoras.</p>
-            </div>
+    <div class="membro">
+      <img src="../../imagens/img-levy.jpg" alt="Foto do Mateus Levy de Sousa Dantas">
+      <br>
+      <h3>Mateus Levy de Sousa Dantas</h3>
+      <p class="funcao">Programador</p>
+      <p class="descricao">Cuida da parte de programação, desenvolvendo cada dia mais.</p>
+    </div>
 
+    <div class="membro">
+      <img src="../../imagens/img-rikelmy.jpg" alt="Foto Pedro Rikelmy Vera Xavier Sousa">
+      <h3>Pedro Santos</h3>
+      <p class="funcao">Designer e Marketing</p>
+      <br>
+      <p class="descricao">Cuida da experiência do usuário e design visual.</p>
+    </div>
+  </section>
 
-            <div class="team-member">
-                <a href=" https://www.instagram.com/rikelmyy7._?igsh=MTU0aWppY2ZzbzNkMA=="><img src="/imagens/img-rikelmy.jpg" alt="Foto de Rikelmy"></a>
-                <h3>Rikelmy</h3>
-                <p class="cargo">Design e Marketing</p>
-                <p class="bio">Responsável pela identidade visual, marketing e criação de interfaces da equipe.</p>
-            </div>
+  <script>
+    const btnMenu = document.getElementById("btnMenu");
+    const linksMenu = document.getElementById("linksMenu");
+    const overlay = document.getElementById("overlay");
 
+    btnMenu.addEventListener("click", () => {
+      linksMenu.classList.toggle("ativo");
+      overlay.classList.toggle("ativo");
+    });
 
-        </div>
-    </section>
-
-        <footer>
-            <a href="inicio.html">
-                <h2>Voltar</h2>
-            </a>
-        </footer>
-
+    // Fecha menu ao clicar no fundo
+    overlay.addEventListener("click", () => {
+      linksMenu.classList.remove("ativo");
+      overlay.classList.remove("ativo");
+    });
+  </script>
 </body>
 </html>
