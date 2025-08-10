@@ -10,7 +10,7 @@ function irParaLogin() {
   
 
     setTimeout(() => {
-        window.location.href = "../../login.html";
+        window.location.href = "login-page/login.html";
     }, 1500);
 }
 
