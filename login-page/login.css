@@ -142,7 +142,7 @@ p a {
 
 @media (max-width: 768px) {
   .wrapper {
-    max-width: 95%;
+    max-width: 400px;
   }
 
   .container {
@@ -160,7 +160,8 @@ p a {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 580px) {
+  
   .logo {
     font-size: 20px;
   }
@@ -181,14 +182,3 @@ p a {
 }
 
 
-
-    @keyframes flickerTitle {
-        0%, 100% { text-shadow: 0 0 10px #4db8ff, 0 0 20px #4db8ff; }
-        50% { text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff; }
-    }
-    @keyframes flickerText {
-        0%, 100% { opacity: 1; }
-        45% { opacity: 0.9; }
-        50% { opacity: 0.8; }
-        55% { opacity: 0.95; }
-    }

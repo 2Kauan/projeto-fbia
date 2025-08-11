@@ -5,10 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chatbot - Frederico</title>
 
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- CSS do AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Seu CSS -->
   <link rel="stylesheet" href="../css/inicio.css" />
 </head>
 <body>
@@ -16,7 +19,7 @@
 
   <header>
     <div class="logo">
-      <img src=" " alt="" />
+      <img src="" alt="" />
     </div>
 
     <i class="fas fa-bars menu-btn" id="menu-btn"></i>
@@ -36,26 +39,30 @@
     <p>Atenda clientes, responda perguntas e venda mais com um robô personalizado!</p>
   </section>
 
-  <section id="servicos">
+  <section id="servicos" data-aos="fade-up" data-aos-duration="1300" >
     <h2>O que o FBIA faz?</h2>
-    <br /><br /><br /><br />
+    <br><br><br><br>
+
     <div class="features">
-      <div class="card">
+      <div data-aos="fade-up" data-aos-duration="1300" class="card">
         <i class="fas fa-robot"></i>
         <h3>Atendimento 24h</h3>
         <p>Seu cliente nunca mais vai ficar sem resposta.</p>
       </div>
-      <div class="card">
+
+      <div class="card" data-aos="fade-up" data-aos-duration="1300">
         <i class="fas fa-comments"></i>
         <h3>Conversa Natural</h3>
         <p>Parecendo humano, mas com velocidade de máquina.</p>
       </div>
-      <div class="card">
+
+      <div class="card" data-aos="fade-up" data-aos-duration="1300">
         <i class="fas fa-cogs"></i>
         <h3>Totalmente Personalizável</h3>
         <p>Adapte o Frederico para qualquer negócio.</p>
       </div>
-      <div class="card">
+
+      <div class="card" data-aos="fade-up" data-aos-duration="1300">
         <i class="fa-solid fa-book-open"></i>
         <h3>Aprende com cada interação</h3>
         <p>Quanto mais conversa, mais inteligente e eficiente ele se torna.</p>
@@ -63,7 +70,7 @@
     </div>
   </section>
 
-  <section id="equipe">
+  <section id="equipe" data-aos="fade-up" data-aos-duration="1300" >
     <h2>Criador</h2>
     <p>
       Desenvolvido por
@@ -71,7 +78,7 @@
     </p>
   </section>
 
-  <section id="contato">
+  <section id="contato" data-aos="fade-out" data-aos-duration="1500" >
     <h2>Fale Conosco</h2>
     <p>Entre em contato para ter o seu próprio Frederico hoje mesmo!</p>
   </section>
@@ -93,6 +100,13 @@
     </div>
   </div>
 
+  <!-- JS do AOS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+  <!-- Seu JS -->
   <script>
     function toggleMenu() {
       document.getElementById("nav-menu").classList.toggle("show");
