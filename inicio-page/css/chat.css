@@ -258,23 +258,6 @@
     z-index: 100;
   }
 
-  /* Botão apagar conversa dentro do menu */
-  .chat-item button {
-    background: none;
-    border: none;
-    color: white;
-    width: 100%;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 14px;
-    text-align: left;
-    user-select: none;
-    transition: background 0.2s ease;
-  }
-
-  .chat-item button:hover {
-    background: rgba(255, 255, 255, 0.1);
-  }
 
   /* Overlay para fechar a sidebar ao clicar fora */
   .overlay {

@@ -7,21 +7,21 @@
   <title>Chatbot Moderno</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="../css/sobre.css">
+
 </head>
 
 <body>
   <header>
     <div class="logo">FBIA Chatbot</div>
-    <i class="fas fa-bars menu-toggle" onclick="toggleMenu()"></i>
-    <nav id="menu">
-      <ul id="nav-links">
-        <li><a href="inicio.html">Início</a></li>
+    <button class="menu-btn"><i class="fas fa-bars"></i></button>
 
-        <li><a href="sobre.html">Sobre</a></li>
-
-        <li><a href="chat.html">Chat</a></li>
-      </ul>
+    <nav>
+      <a href="inicio.html">Início</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="chat.html">Chat</a>
     </nav>
+
+    <div class="overlay"></div>
   </header>
 
   <section class="hero">
@@ -49,14 +49,19 @@
   </div>
 
   <script>
-    function toggleMenu() {
-      document.getElementById("menu").classList.toggle("active");
-    }
+    const menuBtn = document.querySelector('.menu-btn');
+    const nav = document.querySelector('nav');
+    const overlay = document.querySelector('.overlay');
 
-    function toggleChat() {
-      const chatbox = document.getElementById("chatbox");
-      chatbox.style.display = chatbox.style.display === "flex" ? "none" : "flex";
-    }
+    menuBtn.addEventListener('click', () => {
+      nav.classList.toggle('show');
+      overlay.classList.toggle('show');
+    });
+
+    overlay.addEventListener('click', () => {
+      nav.classList.remove('show');
+      overlay.classList.remove('show');
+    });
 
     function sendMessage() {
       const input = document.getElementById("userText");

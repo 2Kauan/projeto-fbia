@@ -54,3 +54,12 @@ Barbearia, restaurante, clínica e muito mais — veja como adaptar o Frederico 
 
 Tutorial: Configure o Frederico em menos de 5 minutos
 Sem código, sem complicação. Aprenda como colocar o FBIA em funcionamento rapidamente.
+
+
+
+
+js para voltar para a ultima pag do navegador que vc tava:
+
+const btnVoltar = document.getElementById('btnVoltar');
+btnVoltar.addEventListener('click', () => {
+  window.history.back();

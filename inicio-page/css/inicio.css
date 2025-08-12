@@ -11,16 +11,30 @@ body {
   scroll-behavior: smooth;
 }
 
-/* HEADER */
+
 header {
-  background: #021d73;
+  background: #000000bb;
   color: #FFFFFF;
   padding: 10px 20px;
+  height: 60px;
+  width: 100vw;
+  margin-bottom: 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
+  position: fixed;
   z-index: 1000;
+
+    /* efeito de blur */
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px); /* Na merda do Safari */
+
+}
+
+header>nav{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .logo img {
@@ -28,25 +42,28 @@ header {
 }
 
 .menu-btn {
-  font-size: 24px;
+   position: fixed;
+  top: 17px;       
+  left: 24px;
+  font-size: 28px;
   cursor: pointer;
-  display: none;
   color: #FFFFFF;
   background: none;
   border: none;
 }
 
-/* NAV */
+
 nav {
   position: absolute;
   top: 100%;
   left: 0;
   width: 100%;
-  background: #021d73;
+  background: #00000074;
   flex-direction: column;
   overflow: hidden;
   max-height: 0;
   transition: max-height 0.4s ease;
+
 }
 
 nav a {
@@ -56,15 +73,20 @@ nav a {
   text-decoration: none;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   transition: background 0.3s ease;
+  
 }
 
 nav a:hover {
-  background: #0115FA;
+  background: #000000;
+      /* efeito de blur */
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px); /* Na merda do Safari */
 }
 
 /* Mostrar o menu quando ativo */
 nav.show {
   max-height: 500px;
+  
 }
 
 /* Overlay para fechar o menu */
@@ -83,25 +105,32 @@ nav.show {
   display: block;
 }
 
-/* Seções */
+
 .banner {
   background: #000000;
   color: #FFFFFF;
   padding: 60px 20px;
   text-align: center;
   animation: fadeIn 5s ease;
+  z-index: 1;
 }
 
 .banner h1 {
   font-size: 2.5rem;
+  margin-top: 100px ;
   margin-bottom: 10px;
   animation: slideInDown 1s ease;
 }
 
+.banner h2{
+   font-size: 2.5rem;
+}
+
 .banner p {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   animation: slideInUp 1s ease;
 }
+
 
 section {
   padding: 60px 20px;
@@ -138,89 +167,10 @@ section {
 
 /* Footer */
 footer {
-  background: #2331CF;
+  background: #00024ac0;
   color: #FFFFFF;
   text-align: center;
   padding: 20px;
-}
-
-/* Chatbot */
-#chatbot {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 300px;
-  max-height: 500px;
-  background: #FFFFFF;
-  color: #000000;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
-  display: flex;
-  flex-direction: column;
-  z-index: 9999;
-  animation: fadeInUp 0.6s ease;
-}
-
-#chatbot header {
-  background: #2331CF;
-  color: #FFFFFF;
-  padding: 10px;
-  font-weight: bold;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-#chat-messages {
-  flex: 1;
-  padding: 10px;
-  overflow-y: auto;
-}
-
-#chat-input {
-  display: flex;
-  border-top: 1px solid #ccc;
-}
-
-#chat-input input {
-  flex: 1;
-  padding: 10px;
-  border: none;
-  outline: none;
-}
-
-#chat-input button {
-  background: #2331CF;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-#chat-input button:hover {
-  background: #0115FA;
-}
-
-/* Chat mensagens */
-.user, .bot {
-  margin: 5px 0;
-  padding: 8px 12px;
-  border-radius: 10px;
-  max-width: 80%;
-  word-wrap: break-word;
-}
-
-.user {
-  background: #e0e0e0;
-  align-self: flex-end;
-  color: #000000;
-}
-
-.bot {
-  background: #2331CF;
-  color: #FFFFFF;
-  align-self: flex-start;
 }
 
 /* RESPONSIVO */
@@ -240,7 +190,18 @@ footer {
   nav a {
     border: none;
     padding: 0 15px;
+    transition: transform 0.3s ease;
   }
+
+    nav>a:hover{
+    transform: scale(1.09);
+    background-color: #000000c0;
+    border-radius: 100px;
+  }
+
+    nav>a:active {
+  transform: scale(1.9);
+}
 
   .overlay {
     display: none !important;
@@ -251,6 +212,34 @@ footer {
   .menu-btn {
     display: block;
   }
+  
+  nav {
+    color: #000000;
+    background-color: #000000c2;
+  }
+  
+  nav>a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 10px;
+    width: 400px;
+    border: none;
+    transition: transform 0.7s ease;
+  }
+
+  nav>a:hover{
+    transform: translateY(-7px) scale(1.09);
+    background-color: #00024ac0;
+    border-radius: 100px;
+
+  }
+
+  nav>a:active {
+  transform: scale(1.9);
+}
+
 }
 
 /* Animações */
