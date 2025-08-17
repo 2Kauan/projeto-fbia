@@ -1,23 +1,195 @@
-
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FBIA - Tela Inicial</title>
-<link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FBIA - FREDERICO</title>
+    <meta name="description" content="Site criado para o FBIA, um chatbot de IA.">
+    <meta name="keywords" content="IA, ChatBot, clientes, atendimento.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLPD7yG33j8GkM3L3Vw9r0wB5Q6t52i2o6N4zQ5x3h3G0rC1fF9q4zQ8E3o2M5N1B4G1u4R8q5A2W5f7Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
 
-<canvas id="bg"></canvas>
+    <header class="header">
+        <nav class="container-nav-bar">
+            <a href="#" class="logo">
+                <img src="imagens/header-fbia (2).png" alt="Logo da Empresa">
+            </a>
 
-<div class="container">
-    <h1>Bem-vindo ao FBIA</h1>
-    <p>Seu chatbot que não se cansa, para o <br> cliente que sempre avança.</p>
-    <button class="btn" id="startBtn" onclick="irParaLogin()">Começar</button>
-</div>
+            <ul class="nav-links">
+                <li><a href="#hero" class="smooth-scroll">Início</a></li>
+                <li><a href="#services" class="smooth-scroll">Serviços</a></li>
+                <li><a href="#about" class="smooth-scroll">Sobre</a></li>
+                <li><a href="#portfolio" class="smooth-scroll">Portfólio</a></li>
+                <li><a href="#contact" class="smooth-scroll">Contato</a></li>
+            </ul>
 
-<script src="index.js"></script>
+            <button id="menu-btn" class="hamburger-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
 
+        <div id="mobile-menu" class="mobile-menu-container">
+            <ul class="mobile-menu-links">
+                <li><a href="#hero" class="smooth-scroll mobile-menu-link">Início</a></li>
+                <li><a href="#services" class="smooth-scroll mobile-menu-link">Serviços</a></li>
+                <li><a href="#about" class="smooth-scroll mobile-menu-link">Sobre</a></li>
+                <li><a href="#portfolio" class="smooth-scroll mobile-menu-link">Portfólio</a></li>
+                <li><a href="#contact" class="smooth-scroll mobile-menu-link">Contato</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="container hero-content">
+                <div class="hero-text" data-aos="fade-right">
+                    <h1 style="color: #0000a8;">
+                        FBIA <br class="mobile-break">Frederico Bot de IA.
+                    </h1>
+                    <p>
+                        Seu chatBot que não se cansa, para o cliente que sempre avança.
+                    </p>
+                    <a href="mailto:frederico.kdg@gmail.com?subject=Contato%20via%20Site&body=Olá,%20gostaria%20de%20saber%20mais%20sobre%20seus%20serviços." class="call-to-action"> Fale Conosco</a>
+                        
+                    </a>
+                </div>
+                <div class="hero-image-container" data-aos="fade-left">
+                    <img src="imagens/frederico-no-cell.png" alt="Imagem descritiva da seção hero">
+                </div>
+            </div>
+        </section>
+        
+        <section id="services" class="section services-section">
+            <div class="container section-content">
+                <h2 class="section-title" data-aos="fade-up">Nossos Serviços</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                    O que o FBIA faz de melhor para ajudar você a alcançar seus objetivos.
+                </p>
+
+                <div class="services-grid">
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card-icon"><i class="fas fa-desktop"></i></div>
+                        <h3 class="card-title">Respostas 24hrs por dia</h3>
+                        <p class="card-description">
+                            Frederico está sempre disposto a responder o usúario para oferecer a melhor experiência ao longo do dia.
+                        </p>
+                    </div>
+                    
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <h3 class="card-title">Individualização da sua empresa</h3>
+                        <p class="card-description">
+                            Desenvolvido para atender às necessidades específicas do seu negócio, Frederico é personalizável e adaptável.
+                        </p>
+                    </div>
+
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card-icon"><i class="fas fa-bullhorn"></i></div>
+                        <h3 class="card-title">Funções de alta performace</h3>
+                        <p class="card-description">
+                            O FBIA pode ler documentos enviados pelo usuário e responder perguntas com base nas informações presentes nesses arquivos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+<section id="portfolio" class="section portfolio-section">
+    <div class="container section-content">
+        <h2 class="section-title" data-aos="fade-up">Nosso Projeto</h2>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+            Confira o desenvolvimento do FBIA
+        </p>
+
+        <div class="portfolio-grid">
+            <div class="portfolio-item" data-aos="zoom-in">
+                <a href="URL_DA_PAGINA_DO_PROJETO_AQUI" target="_blank">
+                    <img src="imagens/header-fbia (2).png" alt="FBIA - Frederico Bot de IA">
+                    <div class="overlay">
+                        <div class="overlay-text">
+                            <h3 style="font-size:2.2em;">FBIA</h3>
+                            <p>
+                                <strong>Transforme seu atendimento:</strong> <br>
+                                O ChatBot inteligente que impulsiona resultados e encanta seus clientes!
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            </div>
+
+        <a href="entrar.html" class="btn-confira" target="_blank">
+            Confira o desenvolvimento do FBIA
+        </a>
+    </div>
+</section>
+
+        <section id="contact" class="section contact-section">
+            <div class="container section-content">
+                <h2 class="section-title" data-aos="fade-up">Entre em Contato</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                    Estamos prontos para ouvir sua ideia e transformá-la em realidade.
+                </p>
+
+                <div class="contact-form-container" data-aos="fade-up" data-aos-delay="200">
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nome</label>
+                            <input type="text" id="name" name="name" required>
+                            <div id="name-error" class="error-message">Por favor, insira seu nome completo.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                            <div id="email-error" class="error-message">Por favor, insira um email válido.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensagem</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <div id="message-error" class="error-message">A mensagem não pode estar vazia.</div>
+                        </div>
+                        <button type="submit" class="submit-button">
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-links-container">
+                <ul class="footer-links">
+                    <li><a href="#services" class="smooth-scroll">Serviços</a></li>
+                    <li><a href="#about" class="smooth-scroll">Sobre</a></li>
+                    <li><a href="#portfolio" class="smooth-scroll">Portfólio</a></li>
+                </ul>
+
+                <div class="social-links">
+                    <a href="LINK_DO_SEU_FACEBOOK" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="LINK_DO_SEU_TWITTER" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/fbia._/?igsh=MWE5b21scGYyYm53ZQ%3D%3D#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="LINK_DO_SEU_LINKEDIN" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <hr class="footer-divider">
+            <p class="copyright-text">&copy; 2025 Project KDG. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </body>
 </html>

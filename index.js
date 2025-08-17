@@ -1,113 +1,97 @@
-  
-function irParaLogin() {
-    const btn = document.getElementById("startBtn");
-
-    btn.disabled = true;
-    btn.style.cursor = "not-allowed";
-    btn.classList.add("loading");
-    btn.innerHTML = `<div class="loading-spinner"></div> Carregando...`;
-
-  
-
-    setTimeout(() => {
-        window.location.href = "login-page/login.html";
-    }, 1500);
-}
-
-// --- Rede Neural com partículas brilhantes ---
-const canvas = document.getElementById("bg");
-const ctx = canvas.getContext("2d");
-let particlesArray;
-let mouse = { x: null, y: null, radius: 100 };
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-window.addEventListener("resize", () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    init();
+// AOS - Inicializa a biblioteca de animação de rolagem
+window.addEventListener('load', () => {
+    AOS.init({
+        duration: 1000,
+        once: true,
+    });
 });
 
-window.addEventListener("mousemove", (e) => {
-    mouse.x = e.x;
-    mouse.y = e.y;
+// MENU HAMBÚRGUER
+const menuBtn = document.getElementById('menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
 });
 
-class Particle {
-    constructor(x, y, dirX, dirY, size, color) {
-        this.x = x;
-        this.y = y;
-        this.dirX = dirX;
-        this.dirY = dirY;
-        this.size = size;
-        this.color = color;
-    }
-    draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-        ctx.fillStyle = this.color;
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = this.color;
-        ctx.fill();
-    }
-    update() {
-        if (this.x > canvas.width || this.x < 0) this.dirX *= -1;
-        if (this.y > canvas.height || this.y < 0) this.dirY *= -1;
-        this.x += this.dirX;
-        this.y += this.dirY;
+// Fecha o menu ao clicar em um link
+mobileMenuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+    });
+});
 
-        let dx = mouse.x - this.x;
-        let dy = mouse.y - this.y;
-        let distance = Math.sqrt(dx*dx + dy*dy);
-        if (distance < mouse.radius) {
-            this.x -= dx / distance;
-            this.y -= dy / distance;
+// ROLAGEM SUAVE (SMOOTH SCROLL)
+document.querySelectorAll('a.smooth-scroll').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 80, // Ajuste o valor para a altura do seu header fixo
+                behavior: 'smooth'
+            });
         }
-        this.draw();
+    });
+});
+
+// VALIDAÇÃO DO FORMULÁRIO DE CONTATO
+const contactForm = document.getElementById('contact-form');
+const nameInput = document.getElementById('name');
+const emailInput = document.getElementById('email');
+const messageInput = document.getElementById('message');
+
+contactForm.addEventListener('submit', (e) => {
+    let isValid = true;
+
+    // Validação do Nome
+    if (nameInput.value.trim() === '') {
+        showError(nameInput, 'name-error');
+        isValid = false;
+    } else {
+        hideError(nameInput, 'name-error');
     }
+
+    // Validação do Email
+    if (!validateEmail(emailInput.value)) {
+        showError(emailInput, 'email-error');
+        isValid = false;
+    } else {
+        hideError(emailInput, 'email-error');
+    }
+
+    // Validação da Mensagem
+    if (messageInput.value.trim() === '') {
+        showError(messageInput, 'message-error');
+        isValid = false;
+    } else {
+        hideError(messageInput, 'message-error');
+    }
+
+    if (!isValid) {
+        e.preventDefault(); // Impede o envio do formulário se houver erros
+    } else {
+        // Se o formulário for válido, você pode enviar os dados para um backend
+        // Por enquanto, apenas exibimos um alerta e resetamos o formulário
+        alert('Mensagem enviada com sucesso! Obrigado pelo contato.');
+        contactForm.reset();
+        e.preventDefault();
+    }
+});
+
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
 }
 
-function init() {
-    particlesArray = [];
-    let numberOfParticles = (canvas.width * canvas.height) / 9000;
-    for (let i = 0; i < numberOfParticles; i++) {
-        let size = Math.random() * 2 + 1;
-        let x = Math.random() * (window.innerWidth - size * 2);
-        let y = Math.random() * (window.innerHeight - size * 2);
-        let dirX = (Math.random() - 0.5) * 0.7;
-        let dirY = (Math.random() - 0.5) * 0.7;
-        let color = Math.random() > 0.5 ? "rgba(86, 77, 255, 0.9)" : "rgba(51, 0, 255, 0.8)";
-        particlesArray.push(new Particle(x, y, dirX, dirY, size, color));
-    }
+function showError(inputElement, errorElementId) {
+    inputElement.classList.add('border-red-500');
+    document.getElementById(errorElementId).classList.remove('hidden');
 }
 
-function connect() {
-    for (let a = 0; a < particlesArray.length; a++) {
-        for (let b = a; b < particlesArray.length; b++) {
-            let distance = ((particlesArray[a].x - particlesArray[b].x) ** 2) +
-                           ((particlesArray[a].y - particlesArray[b].y) ** 2);
-            if (distance < (canvas.width / 7) * (canvas.height / 7)) {
-                let opacityValue = 1 - (distance / 20000);
-                ctx.strokeStyle = `rgba(77,184,255,${opacityValue})`;
-                ctx.lineWidth = 1;
-                ctx.beginPath();
-                ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-                ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
-                ctx.stroke();
-            }
-        }
-    }
+function hideError(inputElement, errorElementId) {
+    inputElement.classList.remove('border-red-500');
+    document.getElementById(errorElementId).classList.add('hidden');
 }
-
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (let i = 0; i < particlesArray.length; i++) {
-        particlesArray[i].update();
-    }
-    connect();
-    requestAnimationFrame(animate);
-}
-
-init();
-animate();

@@ -1,89 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chatbot Moderno</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="../css/sobre.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre o FBIA</title>
 </head>
-
 <body>
-  <header>
-    <div class="logo">FBIA Chatbot</div>
-    <button class="menu-btn"><i class="fas fa-bars"></i></button>
-
-    <nav>
-      <a href="inicio.html">Início</a>
-      <a href="sobre.html">Sobre</a>
-      <a href="chat.html">Chat</a>
-    </nav>
-
-    <div class="overlay"></div>
-  </header>
-
-  <section class="hero">
-    <h1>Bem-vindo ao Chatbot FBIA</h1>
-    <p>Um assistente virtual personalizável, moderno e funcional para o seu negócio.</p>
-  </section>
-
-  <section id="sobre-page">
-    <h2>Sobre o Projeto</h2>
-    <div class="content">
-      <br>
-      <p>O Frederico, também conhecido como FBIA, é um chatbot personalizável criado para automatizar e melhorar o atendimento ao cliente em diferentes áreas, como barbearias, restaurantes, clínicas e lojas online.</p>
-      <br>
-      <p>Com a possibilidade de personalização visual e funcional, o Frederico pode assumir a identidade da sua marca, responder perguntas frequentes, agendar serviços, vender produtos e até ler documentos com instruções específicas.</p>
-    </div>
-  </section>
-
-  <div id="chatbox">
-    <header>Chat FBIA</header>
-    <div id="messages"></div>
-    <div id="userInput">
-      <input type="text" id="userText" placeholder="Digite sua mensagem...">
-      <button onclick="sendMessage()">Enviar</button>
-    </div>
-  </div>
-
-  <script>
-    const menuBtn = document.querySelector('.menu-btn');
-    const nav = document.querySelector('nav');
-    const overlay = document.querySelector('.overlay');
-
-    menuBtn.addEventListener('click', () => {
-      nav.classList.toggle('show');
-      overlay.classList.toggle('show');
-    });
-
-    overlay.addEventListener('click', () => {
-      nav.classList.remove('show');
-      overlay.classList.remove('show');
-    });
-
-    function sendMessage() {
-      const input = document.getElementById("userText");
-      const message = input.value.trim();
-      if (message) {
-        const messages = document.getElementById("messages");
-        const userDiv = document.createElement("div");
-        userDiv.className = "user";
-        userDiv.textContent = "Você: " + message;
-        messages.appendChild(userDiv);
-        input.value = "";
-
-        setTimeout(() => {
-          const botDiv = document.createElement("div");
-          botDiv.className = "bot";
-          botDiv.textContent = "FBIA: Esta é uma resposta automática!";
-          messages.appendChild(botDiv);
-          messages.scrollTop = messages.scrollHeight;
-        }, 1000);
-      }
-    }
-  </script>
+    <h1>Ainda não está pronto</h1>
+    <a href="inicio.html">Voltar</a>    
 </body>
-
 </html>

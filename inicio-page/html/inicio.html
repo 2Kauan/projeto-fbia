@@ -75,7 +75,7 @@
     <h2>Criador</h2>
     <p>
       Desenvolvido por
-      <a href="https://github.com/2Kauan" target="_blank" rel="noopener noreferrer">Kauan</a>
+      <a class="link-kauan" href="https://github.com/2Kauan" target="_blank" rel="noopener noreferrer">Kauan</a>
     </p>
   </section>
 
@@ -87,79 +87,19 @@
   <footer>
     &copy; 2025 FBIA. Todos os direitos reservados.
   </footer>
-
-  <!-- Chatbot -->
-  <div id="chatbot">
-    <header>
-      Chatbot Frederico
-      <button id="close-chatbot">&times;</button>
-    </header>
-    <div id="chat-messages"></div>
-    <div id="chat-input">
-      <input type="text" id="userInput" placeholder="Digite aqui..." />
-      <button onclick="sendMessage()">Enviar</button>
-    </div>
-  </div>
-
-  <!-- JS do AOS -->
+    <!-- JS do AOS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
   </script>
 
-  <!-- Seu JS -->
+  <!-- Meu JS -->
   <script>
     function toggleMenu() {
       document.getElementById("nav-menu").classList.toggle("show");
       document.getElementById("overlay").classList.toggle("show");
     }
 
-    function sendMessage() {
-      const input = document.getElementById("userInput");
-      const message = input.value.trim();
-      if (!message) return;
-
-      addMessage(message, "user");
-      input.value = "";
-
-      setTimeout(() => {
-        const resposta = getRespostaBot(message);
-        addMessage(resposta, "bot");
-      }, 600);
-    }
-
-    function addMessage(text, type) {
-      const msg = document.createElement("div");
-      msg.className = type;
-      msg.innerText = text;
-      document.getElementById("chat-messages").appendChild(msg);
-      document.getElementById("chat-messages").scrollTop = 9999;
-    }
-
-    function getRespostaBot(msg) {
-      msg = msg.toLowerCase();
-      if (msg.includes("olá") || msg.includes("oi")) return "Olá! Como posso te ajudar?";
-      if (msg.includes("preço")) return "Os planos variam de R$49 a R$199/mês.";
-      if (msg.includes("quem é você")) return "Sou o Frederico, seu assistente virtual!";
-      return "Desculpe, ainda estou aprendendo. Pode reformular a pergunta?";
-    }
-
-    function toggleChat() {
-      const chat = document.getElementById("chatbot");
-      chat.style.display =
-        chat.style.display === "none" || chat.style.display === "" ? "flex" : "none";
-    }
-
-    const closeBtn = document.getElementById("close-chatbot");
-    const chatbot = document.getElementById("chatbot");
-
-    closeBtn.addEventListener("click", () => {
-      chatbot.style.display = "none";
-    });
-
-    window.onload = () => {
-      document.getElementById("chatbot").style.display = "none";
-    };
 
     // Menu responsivo
     const menuBtn = document.getElementById("menu-btn");
