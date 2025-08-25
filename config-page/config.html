@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações</title>
+    <link rel="stylesheet" href="config.css">
+
+</head>
+<body>
+    <div class="dispositivo-celular" id="dispositivo">
+        <div class="conteudo-tela">
+            <div class="cabecalho">
+                <span class="icone-voltar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                </span>
+                <h1 class="cabecalho-titulo">CONFIGURAÇÕES</h1>
+            </div>
+
+            <div class="secao">
+                <div class="item-menu">INFORMAÇÕES DE CONTA</div>
+                <div class="item-menu">SEGURANÇA</div>
+                <div class="item-menu">NOTIFICAÇÕES</div>
+            </div>
+
+            <div class="secao secao-modos">
+                <div class="secao-titulo">MODOS</div>
+                <div class="container-modos">
+                    <button class="botao-modo" id="modo-dia">DIA</button>
+                    <button class="botao-modo" id="modo-noite">NOITE</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="barra-navegacao">
+            <span class="icone-navegacao">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </span>
+            <span class="icone-navegacao">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            </span>
+            <span class="icone-navegacao">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83l-2.83 2.83a2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0l-2.83-2.83a2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83l2.83-2.83a2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0l2.83 2.83a2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82z"></path></svg>
+            </span>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const botaoDia = document.getElementById('modo-dia');
+            const botaoNoite = document.getElementById('modo-noite');
+            const dispositivo = document.getElementById('dispositivo');
+
+            // Função para alternar entre os modos
+            function alternarModo(modo) {
+                if (modo === 'dia') {
+                    document.body.classList.remove('modo-escuro');
+                    botaoDia.classList.add('ativo');
+                    botaoNoite.classList.remove('ativo');
+                } else if (modo === 'noite') {
+                    document.body.classList.add('modo-escuro');
+                    botaoNoite.classList.add('ativo');
+                    botaoDia.classList.remove('ativo');
+                }
+            }
+
+            // Define o modo inicial como 'dia'
+            alternarModo('dia');
+
+            // Adiciona event listeners para os botões
+            botaoDia.addEventListener('click', () => {
+                alternarModo('dia');
+            });
+
+            botaoNoite.addEventListener('click', () => {
+                alternarModo('noite');
+            });
+        });
+    </script>
+</body>
+</html>

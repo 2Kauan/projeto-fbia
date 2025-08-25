@@ -1,0 +1,210 @@
+     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+        :root {
+            --cor-fundo-claro: #f0f2f5;
+            --cor-fundo-escuro: #121212;
+            --cor-celular-claro: #ffffff;
+            --cor-celular-escuro: #000000;
+            --cor-texto-claro: #333333;
+            --cor-texto-escuro: #ffffff;
+            --cor-borda-claro: #e0e0e0;
+            --cor-borda-escuro: #333333;
+            --cor-botoes-claro: #f0f0f0;
+            --cor-botoes-escuro: #212121;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: var(--cor-fundo-claro);
+            transition: background-color 0.5s ease;
+        }
+
+        .modo-escuro {
+            background-color: var(--cor-fundo-escuro);
+        }
+        
+        .dispositivo-celular {
+            width: 375px;
+            height: 667px;
+            background-color: var(--cor-celular-claro);
+            border-radius: 40px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: background-color 0.5s ease;
+        }
+
+        .modo-escuro .dispositivo-celular {
+            background-color: var(--cor-celular-escuro);
+        }
+
+        .dispositivo-celular::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            right: -100px;
+            bottom: -100px;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: 0;
+            opacity: 0.1;
+        }
+
+        .modo-escuro .dispositivo-celular::before {
+            opacity: 0.2;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .conteudo-tela {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .cabecalho {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .cabecalho-titulo {
+            color: var(--cor-texto-claro);
+            font-size: 18px;
+            font-weight: 500;
+            transition: color 0.5s ease;
+        }
+
+        .modo-escuro .cabecalho-titulo {
+            color: var(--cor-texto-escuro);
+        }
+
+        .icone-voltar {
+            position: absolute;
+            left: 0;
+            font-size: 24px;
+            color: var(--cor-texto-claro);
+            cursor: pointer;
+            transition: color 0.5s ease;
+        }
+
+        .modo-escuro .icone-voltar {
+            color: var(--cor-texto-escuro);
+        }
+
+        .secao {
+            margin-bottom: 25px;
+        }
+
+        .secao-titulo {
+            color: var(--cor-texto-claro);
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            transition: color 0.5s ease;
+        }
+        
+        .modo-escuro .secao-titulo {
+            color: var(--cor-texto-escuro);
+        }
+
+        .item-menu {
+            width: 100%;
+            height: 50px;
+            background-color: var(--cor-botoes-claro);
+            border: 1px solid var(--cor-borda-claro);
+            border-radius: 12px;
+            color: var(--cor-texto-claro);
+            font-size: 16px;
+            font-weight: 400;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+        }
+
+        .modo-escuro .item-menu {
+            background-color: var(--cor-botoes-escuro);
+            border-color: var(--cor-borda-escuro);
+            color: var(--cor-texto-escuro);
+        }
+        
+        .secao-modos {
+            margin-top: 40px;
+        }
+
+        .container-modos {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .botao-modo {
+            width: 100px;
+            height: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--cor-borda-claro);
+            background-color: var(--cor-botoes-claro);
+            color: var(--cor-texto-claro);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+        }
+
+        .modo-escuro .botao-modo {
+            background-color: var(--cor-botoes-escuro);
+            border-color: var(--cor-borda-escuro);
+            color: var(--cor-texto-escuro);
+        }
+
+        .botao-modo.ativo {
+            background-color: #007bff;
+            color: #ffffff;
+            border-color: #007bff;
+        }
+
+        .modo-escuro .botao-modo.ativo {
+            background-color: #3f51b5;
+            border-color: #3f51b5;
+        }
+
+        .barra-navegacao {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 60px;
+            width: 100%;
+            background-color: var(--cor-celular-claro);
+            border-top: 1px solid var(--cor-borda-claro);
+            transition: background-color 0.5s ease, border-color 0.5s ease;
+        }
+        
+        .modo-escuro .barra-navegacao {
+            background-color: var(--cor-celular-escuro);
+            border-color: var(--cor-borda-escuro);
+        }
+
+        .icone-navegacao {
+            font-size: 24px;
+            color: var(--cor-texto-claro);
+            cursor: pointer;
+            transition: color 0.5s ease;
+        }
+
+        .modo-escuro .icone-navegacao {
+            color: var(--cor-texto-escuro);
+        }
